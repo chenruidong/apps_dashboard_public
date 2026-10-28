@@ -1,0 +1,93 @@
+/* The compact launch view. Shared tokens and base styles are in style.css. */
+.dashboard-page { padding-top: 28px; --up: #267f38; --degraded: #986010; --down: #ad2352; --faint: #6b7480; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .dashboard-page { --up: #51cf66; --degraded: #f0a35a; --down: #f06595; --faint: #a0a8b3; } }
+:root[data-theme="dark"] .dashboard-page { --up: #51cf66; --degraded: #f0a35a; --down: #f06595; --faint: #a0a8b3; }
+.dashboard-page .top { align-items: center; gap: 16px; }
+.dashboard-page .title { display: flex; align-items: center; gap: 12px; }
+.dashboard-page .title h1 { font-size: 28px; letter-spacing: -.035em; }
+.dashboard-page .host { margin-top: 3px; }
+.dashboard-page button { min-height: 42px; }
+.dashboard-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-top: 24px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.dashboard-page .scanned { color: var(--muted); }
+.inventory { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 12px; }
+.dashboard-page .summary { margin: 0; }
+.dashboard-page #showall { background: transparent; min-height: 36px; font-size: 12px; }
+.filters { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 12px 0 0; }
+.filters input, .filters select { font: inherit; font-size: 13px; color: var(--text); background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; min-height: 40px; min-width: 0; }
+.filters input { width: 230px; }
+.filters select { max-width: 160px; }
+#filter-count { color: var(--muted); font-size: 12px; }
+.dashboard-page button:focus-visible, .dashboard-page a:focus-visible, .dashboard-page summary:focus-visible, .filters input:focus-visible, .filters select:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; }
+.dashboard-page .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.dashboard-page .card { padding: 16px; gap: 0; position: relative; }
+.dashboard-page .head { align-items: flex-start; gap: 8px; }
+.card-identity { min-width: 0; flex: 1; }
+.dashboard-page .name { font-size: 17px; line-height: 1.35; letter-spacing: -.015em; }
+.dashboard-page .name a { color: var(--text); }
+.dashboard-page .name a:hover { color: var(--link); text-decoration: none; }
+.card-state { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 8px; margin-top: 7px; font-size: 12px; }
+.dashboard-page .status { display: inline-flex; align-items: center; gap: 5px; text-transform: capitalize; letter-spacing: 0; font-size: 12px; }
+.dashboard-page .dot { width: 7px; height: 7px; }
+.launch-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 13px; min-height: 40px; }
+.endpoint { min-width: 0; overflow-wrap: anywhere; color: var(--muted); font-size: 11px; }
+.dashboard-page .open-app { display: inline-flex; align-items: center; justify-content: center; min-height: 40px; padding: 8px 13px; font-size: 13px; }
+.dashboard-page .self-mark { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; min-height: 40px; display: inline-flex; align-items: center; }
+.card-tools { display: flex; align-items: center; gap: 2px; flex: none; margin: -5px -5px 0 0; }
+.dashboard-page .organize { margin: 0; padding: 0; border: 0; position: relative; flex: none; }
+.dashboard-page .head .hide { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; min-height: 36px; padding: 0; font-size: 20px; line-height: 1; border-radius: 7px; }
+.dashboard-page .head .hide:hover { color: var(--text); background: var(--chip); border-color: var(--line); }
+.organize > summary { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; list-style: none; border: 1px solid transparent; border-radius: 7px; font-size: 19px; letter-spacing: 1px; }
+.organize > summary::-webkit-details-marker { display: none; }
+.organize[open] > summary, .organize > summary:hover { background: var(--chip); border-color: var(--line); }
+.organize-actions { position: absolute; right: 0; top: 39px; z-index: 10; display: flex; flex-direction: column; width: 190px; padding: 5px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 10px 30px #14274424; }
+.dashboard-page .organize-actions button { width: 100%; text-align: left; border: 0; border-radius: 6px; min-height: 38px; padding: 8px 10px; font-size: 12px; }
+.dashboard-page .organize-actions button:hover { background: var(--chip); }
+/* Drag a card from anywhere but its controls, Diagnostics and preview (app.js; mouse only). */
+@media (hover: hover) and (pointer: fine) {
+  .dashboard-page .card { cursor: grab; user-select: none; -webkit-user-select: none; }
+  .dashboard-page .card a, .dashboard-page .card button, .dashboard-page .card summary { cursor: pointer; }
+  .dashboard-page .card .diagnostics, .dashboard-page .card .organize-actions { cursor: auto; user-select: text; -webkit-user-select: text; }
+}
+.dashboard-page .collapsed-notes { margin-top: 11px; }
+.dashboard-page .collapsed-notes li { font-size: 11.5px; padding: 7px 9px; }
+.idle-note { color: var(--muted); background: var(--chip); }
+.dashboard-page .diagnostics { margin-top: 14px; padding-top: 3px; }
+.diagnostics > summary { display: flex; align-items: center; gap: 7px; min-height: 35px; font-size: 12px; list-style: none; }
+.diagnostics > summary::-webkit-details-marker { display: none; }
+.diagnostics > summary::before { content: "›"; font-size: 18px; width: 10px; line-height: 1; }
+.diagnostics[open] > summary::before { transform: rotate(90deg); }
+.diagnostic-body { padding-top: 9px; }
+.diagnostic-body > .links { margin-bottom: 9px; }
+.diagnostic-body > details { margin-top: 10px; }
+.dashboard-page .preview { margin-top: 12px; }
+.visually-hidden { position: absolute; clip: rect(0,0,0,0); clip-path: inset(50%); height: 1px; width: 1px; overflow: hidden; white-space: nowrap; }
+@media (max-width: 900px) { .dashboard-page .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) {
+  .dashboard-page { padding-top: max(18px, env(safe-area-inset-top)); }
+  .dashboard-page .title { gap: 10px; }
+  .dashboard-page .title img { width: 29px; height: 29px; }
+  .dashboard-page .title h1 { font-size: 26px; }
+  .dashboard-page .host { font-size: 11px; }
+  .dashboard-page .buttons { gap: 6px; }
+  .dashboard-page .buttons button { font-size: 12px; padding: 8px 10px; min-height: 44px; }
+  .dashboard-toolbar { margin-top: 19px; gap: 12px; padding-bottom: 13px; }
+  .dashboard-page .scanned { font-size: 11px; }
+  .dashboard-page .summary { font-size: 11px; }
+  .inventory { gap: 8px; }
+  .dashboard-page #showall { font-size: 11px; padding: 6px 8px; min-height: 40px; }
+  .filters { gap: 7px; }
+  .filters input { flex: 1; width: 160px; }
+  .filters input, .filters select { min-height: 44px; font-size: 16px; }
+  .filters select { max-width: 137px; }
+  .dashboard-page .grid { grid-template-columns: 1fr; gap: 11px; }
+  .dashboard-page .card { padding: 15px 15px 11px; }
+  .dashboard-page .card .head { user-select: auto; -webkit-user-select: auto; }
+  .dashboard-page .open-app, .dashboard-page .self-mark { min-height: 44px; font-size: 12px; }
+  .dashboard-page .endpoint { font-size: 10.5px; }
+  .dashboard-page .organize > summary, .dashboard-page .head .hide { width: 44px; height: 44px; }
+  .organize-actions { top: 44px; }
+  .dashboard-page .organize-actions button { min-height: 44px; }
+  .diagnostics > summary { min-height: 44px; }
+  .dashboard-page .diagnostics { margin-top: 12px; }
+  .dashboard-page h2 { margin-top: 20px; }
+}

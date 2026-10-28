@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Keeps ElectroGUI running on 127.0.0.1:8765. Fill in __PYTHON__, __CHECKOUT__ and __HOME__
+     (see README.md next to this file), then copy it to ~/Library/LaunchAgents/. -->
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>local.electrogui</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>__PYTHON__</string>
+		<string>-m</string>
+		<string>electro_gui</string>
+		<string>--no-browser</string>
+		<string>--port</string>
+		<string>8765</string>
+	</array>
+	<key>WorkingDirectory</key>
+	<string>__CHECKOUT__</string>
+	<key>EnvironmentVariables</key>
+	<dict>
+		<key>PATH</key>
+		<string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+		<key>PYTHONUNBUFFERED</key>
+		<string>1</string>
+	</dict>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>KeepAlive</key>
+	<true/>
+	<key>StandardOutPath</key>
+	<string>__HOME__/Library/Logs/electrogui.log</string>
+	<key>StandardErrorPath</key>
+	<string>__HOME__/Library/Logs/electrogui.log</string>
+</dict>
+</plist>

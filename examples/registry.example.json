@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "apps": {
+    "apps-dashboard": {
+      "name": "Apps dashboard",
+      "description": "Every web app this Mac serves: status, links, codebase, LaunchAgent.",
+      "port": 8790,
+      "https_port": 443,
+      "launchd": "local.apps-dashboard"
+    },
+    "electrogui": {
+      "name": "ElectroGUI",
+      "description": "Session explorer for neurophysiology recordings: rasters, PSTHs, population views.",
+      "port": 8765,
+      "https_port": 8765,
+      "launchd": "local.electrogui",
+      "repo": "~/code/electrogui"
+    },
+    "notebook": {
+      "name": "Notebook server",
+      "description": "Started by hand when needed; idle the rest of the time.",
+      "port": 8888,
+      "on_demand": true
+    }
+  },
+  "ignore_ports": []
+}

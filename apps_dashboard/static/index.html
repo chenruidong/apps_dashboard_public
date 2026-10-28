@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Apps dashboard</title>
+<meta name="description" content="Every web app this Mac serves: status, links, codebase and LaunchAgent.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121418" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Apps">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/static/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="stylesheet" href="/static/style.css">
+<link rel="stylesheet" href="/static/dashboard.css">
+<script src="/static/app.js" defer></script>
+</head>
+<body class="dashboard-page">
+<header class="top">
+  <div class="title">
+    <img src="/static/favicon.svg" width="34" height="34" alt="">
+    <div><h1>Apps</h1><p class="host" id="host">…</p></div>
+  </div>
+  <nav class="buttons" aria-label="Dashboard actions">
+    <button type="button" id="refresh" aria-label="Refresh app status" title="Scan again (r)">Refresh</button>
+  </nav>
+</header>
+<div class="dashboard-toolbar">
+  <span class="scanned" id="scanned" aria-live="polite"></span>
+</div>
+<div class="inventory">
+  <p class="summary" id="summary"></p>
+  <button type="button" id="showall" title="Show the apps hidden with ×" disabled>Show all apps</button>
+</div>
+<div class="filters" role="search" aria-label="Find apps">
+  <label class="visually-hidden" for="app-search">Search apps</label>
+  <input type="search" id="app-search" placeholder="Search apps" autocomplete="off">
+  <label class="visually-hidden" for="status-filter">Filter app status</label>
+  <select id="status-filter">
+    <option value="">All statuses</option><option value="up">Up</option>
+    <option value="degraded">Degraded</option><option value="down">Down</option>
+    <option value="idle">Idle</option>
+  </select>
+  <span id="filter-count" aria-live="polite"></span>
+</div>
+<div id="errors" class="errors" hidden role="alert"></div>
+<main id="main">
+  <p class="loading">Scanning…</p>
+</main>
+<p id="announcement" class="visually-hidden" role="status" aria-live="polite"></p>
+<footer class="foot" id="foot"></footer>
+</body>
+</html>

@@ -1,0 +1,525 @@
+{
+ "api": 1,
+ "host": {
+  "name": "mymac",
+  "dns": "mymac.example.ts.net"
+ },
+ "scanned": "2026-10-28T12:00:00Z",
+ "took_ms": 240,
+ "apps": [
+  {
+   "id": "electrogui",
+   "name": "ElectroGUI",
+   "description": "Session explorer: rasters, PSTHs and population views",
+   "registered": true,
+   "on_demand": false,
+   "self": false,
+   "status": "up",
+   "problems": [],
+   "warnings": [
+    "running since before HEAD 3f2a9c1 was committed: restart to pick it up"
+   ],
+   "routes": [
+    {
+     "url": "https://mymac.example.ts.net:8778/",
+     "https_port": 8778,
+     "path": "/",
+     "kind": "proxy",
+     "target": "http://127.0.0.1:8778",
+     "funnel": false,
+     "stale": false,
+     "probe": {
+      "code": 200,
+      "ms": 24,
+      "error": null
+     }
+    }
+   ],
+   "local": {
+    "url": "http://127.0.0.1:8778/",
+    "port": 8778,
+    "probe": {
+     "code": 200,
+     "ms": 6,
+     "error": null
+    }
+   },
+   "process": {
+    "pid": 41210,
+    "command": "/usr/bin/python3 -m electro_gui --port 8778",
+    "cwd": "~/code/electrogui",
+    "started": "2026-10-28T09:00:00Z",
+    "uptime_s": 8040,
+    "listen": [
+     "127.0.0.1:8778"
+    ],
+    "started_from": null
+   },
+   "launchd": {
+    "label": "local.electrogui",
+    "plist": "~/Library/LaunchAgents/local.electrogui.plist",
+    "loaded": true,
+    "pid": 41210,
+    "last_exit": "0",
+    "keep_alive": true,
+    "run_at_load": true,
+    "disabled": false,
+    "program": "/usr/bin/python3 -m electrogui --port 8000",
+    "logs": [
+     "~/Library/Logs/electrogui.log"
+    ],
+    "state": "running",
+    "runs": 1
+   },
+   "codebase": {
+    "path": "/home/example/code/electrogui",
+    "display": "~/code/electrogui",
+    "git": true,
+    "head": "3f2a9c1",
+    "subject": "Example commit",
+    "committed": "2026-10-20T15:00:00Z",
+    "branch": "main",
+    "dirty": 0,
+    "upstream": "origin/main",
+    "behind": 0,
+    "ahead": 0,
+    "remote": "https://github.com/chenruidong/electrogui",
+    "source": "LaunchAgent WorkingDirectory"
+   },
+   "on_tailnet": true,
+   "preview": {
+    "src": "data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"800\" height=\"500\"%3E%3Crect width=\"800\" height=\"500\" fill=\"%23eef0f3\"/%3E%3C/svg%3E"
+   }
+  },
+  {
+   "id": "notes",
+   "name": "Notes",
+   "description": "A small notes app (example)",
+   "registered": true,
+   "on_demand": false,
+   "self": false,
+   "status": "degraded",
+   "problems": [
+    "https://mymac.example.ts.net:8781/ no answer in 3 s"
+   ],
+   "warnings": [
+    "2 uncommitted changes in ~/code/notes"
+   ],
+   "routes": [
+    {
+     "url": "https://mymac.example.ts.net:8781/",
+     "https_port": 8781,
+     "path": "/",
+     "kind": "proxy",
+     "target": "http://127.0.0.1:8781",
+     "funnel": false,
+     "stale": false,
+     "probe": {
+      "code": null,
+      "ms": null,
+      "error": "no answer in 3 s"
+     }
+    }
+   ],
+   "local": {
+    "url": "http://127.0.0.1:8781/",
+    "port": 8781,
+    "probe": {
+     "code": 200,
+     "ms": 6,
+     "error": null
+    }
+   },
+   "process": {
+    "pid": 41300,
+    "command": "/usr/bin/python3 server.py",
+    "cwd": "~/code/notes",
+    "started": "2026-10-28T09:00:00Z",
+    "uptime_s": 8040,
+    "listen": [
+     "127.0.0.1:8781"
+    ],
+    "started_from": null
+   },
+   "launchd": {
+    "label": "local.notes",
+    "plist": "~/Library/LaunchAgents/local.notes.plist",
+    "loaded": true,
+    "pid": 41300,
+    "last_exit": "0",
+    "keep_alive": true,
+    "run_at_load": true,
+    "disabled": false,
+    "program": "/usr/bin/python3 -m notes --port 8000",
+    "logs": [
+     "~/Library/Logs/notes.log"
+    ],
+    "state": "running",
+    "runs": 1
+   },
+   "codebase": {
+    "path": "/home/example/code/notes",
+    "display": "~/code/notes",
+    "git": true,
+    "head": "9b8c7d6",
+    "subject": "Example commit",
+    "committed": "2026-10-20T15:00:00Z",
+    "branch": "main",
+    "dirty": 2,
+    "upstream": "origin/main",
+    "behind": 0,
+    "ahead": 0,
+    "remote": null,
+    "source": "LaunchAgent WorkingDirectory"
+   },
+   "on_tailnet": true
+  },
+  {
+   "id": "docs-site",
+   "name": "Docs site",
+   "description": "Static documentation (example)",
+   "registered": true,
+   "on_demand": false,
+   "self": false,
+   "status": "up",
+   "problems": [],
+   "warnings": [],
+   "routes": [
+    {
+     "url": "https://mymac.example.ts.net:8782/",
+     "https_port": 8782,
+     "path": "/",
+     "kind": "proxy",
+     "target": "http://127.0.0.1:8782",
+     "funnel": false,
+     "stale": false,
+     "probe": {
+      "code": 200,
+      "ms": 24,
+      "error": null
+     }
+    }
+   ],
+   "local": {
+    "url": "http://127.0.0.1:8782/",
+    "port": 8782,
+    "probe": {
+     "code": 200,
+     "ms": 6,
+     "error": null
+    }
+   },
+   "process": {
+    "pid": 41400,
+    "command": "/usr/bin/python3 -m http.server 8782",
+    "cwd": "~/code/docs-site",
+    "started": "2026-10-28T09:00:00Z",
+    "uptime_s": 8040,
+    "listen": [
+     "127.0.0.1:8782"
+    ],
+    "started_from": null
+   },
+   "launchd": {
+    "label": "local.docs-site",
+    "plist": "~/Library/LaunchAgents/local.docs-site.plist",
+    "loaded": true,
+    "pid": 41400,
+    "last_exit": "0",
+    "keep_alive": true,
+    "run_at_load": true,
+    "disabled": false,
+    "program": "/usr/bin/python3 -m docs_site --port 8000",
+    "logs": [
+     "~/Library/Logs/docs-site.log"
+    ],
+    "state": "running",
+    "runs": 1
+   },
+   "codebase": {
+    "path": "/home/example/code/docs-site",
+    "display": "~/code/docs-site",
+    "git": true,
+    "head": "1a2b3c4",
+    "subject": "Example commit",
+    "committed": "2026-10-20T15:00:00Z",
+    "branch": "main",
+    "dirty": 0,
+    "upstream": "origin/main",
+    "behind": 0,
+    "ahead": 0,
+    "remote": null,
+    "source": "LaunchAgent WorkingDirectory"
+   },
+   "on_tailnet": true,
+   "preview": {
+    "src": "data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"800\" height=\"500\"%3E%3Crect width=\"800\" height=\"500\" fill=\"%23eef0f3\"/%3E%3C/svg%3E"
+   }
+  },
+  {
+   "id": "photo-archive",
+   "name": "Photo archive",
+   "description": "Started on demand (example)",
+   "registered": true,
+   "on_demand": true,
+   "self": false,
+   "status": "idle",
+   "problems": [],
+   "warnings": [],
+   "routes": [
+    {
+     "url": "https://mymac.example.ts.net:8784/",
+     "https_port": 8784,
+     "path": "/",
+     "kind": "proxy",
+     "target": "http://127.0.0.1:8784",
+     "funnel": false,
+     "stale": false,
+     "probe": {
+      "code": 502,
+      "ms": 3,
+      "error": null
+     }
+    }
+   ],
+   "local": {
+    "url": "http://127.0.0.1:8784/",
+    "port": 8784,
+    "probe": {
+     "code": null,
+     "ms": null,
+     "error": "connection refused"
+    }
+   },
+   "process": null,
+   "launchd": null,
+   "codebase": {
+    "path": "/home/example/code/photo-archive",
+    "display": "~/code/photo-archive",
+    "git": true,
+    "head": "5e6f7a8",
+    "subject": "Example commit",
+    "committed": "2026-10-20T15:00:00Z",
+    "branch": "main",
+    "dirty": 0,
+    "upstream": "origin/main",
+    "behind": 0,
+    "ahead": 0,
+    "remote": null,
+    "source": "LaunchAgent WorkingDirectory"
+   },
+   "on_tailnet": true
+  },
+  {
+   "id": "apps-dashboard",
+   "name": "Apps dashboard",
+   "description": "Every web app this Mac serves: status, links, codebase, LaunchAgent.",
+   "registered": true,
+   "on_demand": false,
+   "self": true,
+   "status": "up",
+   "problems": [],
+   "warnings": [],
+   "routes": [
+    {
+     "url": "https://mymac.example.ts.net/",
+     "https_port": 443,
+     "path": "/",
+     "kind": "proxy",
+     "target": "http://127.0.0.1:8790",
+     "funnel": false,
+     "stale": false,
+     "probe": {
+      "code": 200,
+      "ms": 24,
+      "error": null
+     }
+    }
+   ],
+   "local": {
+    "url": "http://127.0.0.1:8790/",
+    "port": 8790,
+    "probe": {
+     "code": 200,
+     "ms": 6,
+     "error": null
+    }
+   },
+   "process": {
+    "pid": 40100,
+    "command": "/usr/bin/python3 -m apps_dashboard serve",
+    "cwd": "~/code/apps_dashboard_public",
+    "started": "2026-10-28T09:00:00Z",
+    "uptime_s": 8040,
+    "listen": [
+     "127.0.0.1:8790"
+    ],
+    "started_from": null
+   },
+   "launchd": {
+    "label": "local.apps-dashboard",
+    "plist": "~/Library/LaunchAgents/local.apps-dashboard.plist",
+    "loaded": true,
+    "pid": 40100,
+    "last_exit": "0",
+    "keep_alive": true,
+    "run_at_load": true,
+    "disabled": false,
+    "program": "/usr/bin/python3 -m apps_dashboard --port 8000",
+    "logs": [
+     "~/Library/Logs/apps-dashboard.log"
+    ],
+    "state": "running",
+    "runs": 1
+   },
+   "codebase": {
+    "path": "/home/example/code/apps_dashboard_public",
+    "display": "~/code/apps_dashboard_public",
+    "git": true,
+    "head": "0c1d2e3",
+    "subject": "Example commit",
+    "committed": "2026-10-20T15:00:00Z",
+    "branch": "main",
+    "dirty": 0,
+    "upstream": "origin/main",
+    "behind": 0,
+    "ahead": 0,
+    "remote": null,
+    "source": "LaunchAgent WorkingDirectory"
+   },
+   "on_tailnet": true
+  },
+  {
+   "id": "scratch-api",
+   "name": "Scratch API",
+   "description": "An example backend that is not running",
+   "registered": true,
+   "on_demand": false,
+   "self": false,
+   "status": "down",
+   "problems": [
+    "http://127.0.0.1:8799/ connection refused",
+    "nothing listens on port 8799",
+    "LaunchAgent local.scratch-api last exited exit 1"
+   ],
+   "warnings": [],
+   "routes": [],
+   "local": {
+    "url": "http://127.0.0.1:8799/",
+    "port": 8799,
+    "probe": {
+     "code": null,
+     "ms": null,
+     "error": "connection refused"
+    }
+   },
+   "process": null,
+   "launchd": {
+    "label": "local.scratch-api",
+    "plist": "~/Library/LaunchAgents/local.scratch-api.plist",
+    "loaded": true,
+    "pid": null,
+    "last_exit": "exit 1",
+    "keep_alive": true,
+    "run_at_load": true,
+    "disabled": false,
+    "program": "/usr/bin/python3 -m scratch_api --port 8000",
+    "logs": [
+     "~/Library/Logs/scratch-api.log"
+    ],
+    "state": "not running",
+    "runs": 1,
+    "log_tail": {
+     "~/Library/Logs/scratch-api.log": [
+      "Traceback (most recent call last):",
+      "ModuleNotFoundError: No module named 'example'"
+     ]
+    }
+   },
+   "codebase": {
+    "path": "/home/example/code/scratch-api",
+    "display": "~/code/scratch-api",
+    "git": true,
+    "head": "7d8e9f0",
+    "subject": "Example commit",
+    "committed": "2026-10-20T15:00:00Z",
+    "branch": "main",
+    "dirty": 0,
+    "upstream": "origin/main",
+    "behind": 0,
+    "ahead": 0,
+    "remote": null,
+    "source": "LaunchAgent WorkingDirectory"
+   },
+   "on_tailnet": false
+  },
+  {
+   "id": "port-5173",
+   "name": "port-5173",
+   "description": null,
+   "registered": false,
+   "on_demand": false,
+   "self": false,
+   "status": "up",
+   "problems": [],
+   "warnings": [],
+   "routes": [],
+   "local": {
+    "url": "http://127.0.0.1:5173/",
+    "port": 5173,
+    "probe": {
+     "code": 200,
+     "ms": 6,
+     "error": null
+    }
+   },
+   "process": {
+    "pid": 41500,
+    "command": "node /home/example/code/sketch/node_modules/.bin/vite",
+    "cwd": "~/code/sketch",
+    "started": "2026-10-28T09:00:00Z",
+    "uptime_s": 600,
+    "listen": [
+     "127.0.0.1:5173"
+    ],
+    "started_from": null
+   },
+   "launchd": null,
+   "codebase": {
+    "path": "/home/example/code/sketch",
+    "display": "~/code/sketch",
+    "git": true,
+    "head": "2b3c4d5",
+    "subject": "Example commit",
+    "committed": "2026-10-20T15:00:00Z",
+    "branch": "main",
+    "dirty": 0,
+    "upstream": "origin/main",
+    "behind": 0,
+    "ahead": 0,
+    "remote": null,
+    "source": "LaunchAgent WorkingDirectory"
+   },
+   "on_tailnet": false
+  }
+ ],
+ "errors": [],
+ "registry": "~/.config/apps-dashboard/registry.json",
+ "version": "sample",
+ "previews": true,
+ "pending": false,
+ "previews_pending": false,
+ "layout": {
+  "order": [
+   "notes",
+   "electrogui",
+   "docs-site",
+   "retired-app",
+   "photo-archive",
+   "apps-dashboard"
+  ],
+  "hidden": [
+   "docs-site"
+  ]
+ }
+}
