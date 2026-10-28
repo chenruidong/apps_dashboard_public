@@ -141,3 +141,7 @@ iPhone, Share → Add to Home Screen opens it full screen.
 | `examples/` | ElectroGUI walk-through, example registry |
 | `skills/apps-dashboard/` | the agent skill |
 | `tests/` | `python3 -m unittest discover -s tests -t .`; the page test also needs Node and Chrome |
+
+## License
+
+MIT; see [LICENSE](LICENSE).

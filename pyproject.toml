@@ -3,6 +3,7 @@ name = "apps-dashboard"
 version = "0.1.0"
 description = "Every web app this Mac serves: status, links, codebase and LaunchAgent, on the tailnet"
 requires-python = ">=3.8"
+license = {text = "MIT"}
 dependencies = []
 
 [project.scripts]
