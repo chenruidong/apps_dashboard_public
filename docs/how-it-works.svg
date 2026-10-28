@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 324" width="760" height="324" role="img" aria-labelledby="t d">
+  <title id="t">How the apps dashboard works</title>
+  <desc id="d">A browser on a trusted tailnet device reaches tailscale serve, which proxies the bare URL to the dashboard and each other port to its app. The dashboard reads tailscale serve, lsof, ps, launchctl, git and the registry, and probes each app's URLs.</desc>
+  <style>
+    .bg { fill: #ffffff; }
+    .box { fill: #ffffff; stroke: #d2d8e0; stroke-width: 1.2; }
+    .hl { fill: #e6ebfa; stroke: #2446b8; }
+    .soft { fill: #f3f5f8; }
+    .t { font: 700 13.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; fill: #17202b; }
+    .s { font: 400 10.5px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #566273; }
+    .edge { stroke: #566273; stroke-width: 1.4; fill: none; }
+    .dash { stroke-dasharray: 4 4; }
+    .ah { fill: #566273; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0d1117; }
+      .box { fill: #161b22; stroke: #30363d; }
+      .hl { fill: #1b2440; stroke: #8fa7ff; }
+      .soft { fill: #0d1117; }
+      .t { fill: #e6edf3; }
+      .s { fill: #9198a1; }
+      .edge { stroke: #9198a1; }
+      .ah { fill: #9198a1; }
+    }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path class="ah" d="M0,0 L8,4 L0,8 z"/>
+    </marker>
+  </defs>
+  <rect class="bg" x="0" y="0" width="760" height="324" rx="10"/>
+
+  <rect class="box" x="12" y="140" width="146" height="64" rx="8"/>
+  <text class="t" x="85" y="166" text-anchor="middle">Browser</text>
+  <text class="s" x="85" y="186" text-anchor="middle">trusted tailnet device</text>
+
+  <rect class="box" x="196" y="140" width="140" height="64" rx="8"/>
+  <text class="t" x="266" y="166" text-anchor="middle">tailscale serve</text>
+  <text class="s" x="266" y="186" text-anchor="middle">HTTPS, tailnet only</text>
+
+  <rect class="box hl" x="392" y="36" width="176" height="76" rx="8"/>
+  <text class="t" x="480" y="62" text-anchor="middle">Apps dashboard</text>
+  <text class="s" x="480" y="81" text-anchor="middle">127.0.0.1:8790</text>
+  <text class="s" x="480" y="98" text-anchor="middle">LaunchAgent, KeepAlive</text>
+
+  <rect class="box" x="392" y="232" width="176" height="76" rx="8"/>
+  <text class="t" x="480" y="258" text-anchor="middle">Each app</text>
+  <text class="s" x="480" y="277" text-anchor="middle">127.0.0.1:&lt;port&gt;</text>
+  <text class="s" x="480" y="294" text-anchor="middle">its own LaunchAgent</text>
+
+  <rect class="box soft" x="606" y="16" width="146" height="200" rx="8"/>
+  <text class="t" x="679" y="40" text-anchor="middle">Each scan reads</text>
+  <text class="s" x="620" y="64">tailscale serve</text>
+  <text class="s" x="620" y="84">lsof (listeners)</text>
+  <text class="s" x="620" y="104">ps (processes)</text>
+  <text class="s" x="620" y="124">launchctl + plists</text>
+  <text class="s" x="620" y="144">git, never fetching</text>
+  <text class="s" x="620" y="164">registry.json</text>
+  <text class="s" x="620" y="184">one GET per URL</text>
+
+  <path class="edge" d="M158,172 H194" marker-end="url(#ah)"/>
+  <path class="edge" d="M336,164 H364 V74 H390" marker-end="url(#ah)"/>
+  <text class="s" x="370" y="124">:443</text>
+  <path class="edge" d="M336,180 H364 V262 H390" marker-end="url(#ah)"/>
+  <text class="s" x="370" y="222">:&lt;port&gt;</text>
+  <path class="edge" d="M568,74 H604" marker-end="url(#ah)"/>
+  <path class="edge dash" d="M480,112 V230" marker-end="url(#ah)"/>
+  <text class="s" x="488" y="176">probes each URL</text>
+</svg>

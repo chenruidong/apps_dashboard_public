@@ -10,11 +10,20 @@ Python 3.8+ standard library only, macOS. The page cannot start, stop or change 
 [ElectroGUI](https://github.com/chenruidong/electrogui) is the worked example
 ([examples/electrogui](examples/electrogui/README.md)).
 
+<p align="center">
+  <img src="docs/dashboard-desktop.png" width="600" alt="The dashboard in a desktop browser: a card per app with its status, tailnet address and an Open button, grouped into On the tailnet and Only on this Mac">
+  <img src="docs/dashboard-phone-dark.png" width="180" alt="The same page on a phone, in dark mode">
+</p>
+<p align="center"><sub>Example data. Apart from ElectroGUI and the dashboard itself, the apps are made up.</sub></p>
+
 ## How it works
 
 Every app, the dashboard included, listens only on `127.0.0.1`. `tailscale serve` puts each one on the tailnet
-over HTTPS at its own port. The dashboard never talks to an app's code; it reads the machine around it. Each
-scan reads:
+over HTTPS at its own port. The dashboard never talks to an app's code; it reads the machine around it.
+
+![How it works: a browser on the tailnet reaches tailscale serve, which proxies the bare URL to the dashboard and each other port to its app. The dashboard reads tailscale serve, lsof, ps, launchctl, git and the registry, and probes each app's URLs.](docs/how-it-works.svg)
+
+Solid arrows carry requests; the dashed one is the dashboard probing each app. Each scan reads:
 
 | Source | Gives |
 |---|---|
@@ -138,6 +147,7 @@ iPhone, Share → Add to Home Screen opens it full screen.
 | `apps_dashboard/cli.py`, `launchagent.py` | the command line and the dashboard's own LaunchAgent |
 | `apps_dashboard/static/` | the page (plain JavaScript, no build step) |
 | `examples/` | ElectroGUI walk-through, example registry |
+| `docs/` | the screenshots and the diagram in this README |
 | `skills/apps-dashboard/` | the agent skill |
 | `tests/` | `python3 -m unittest discover -s tests -t .`; the page test also needs Node and Chrome |
 
