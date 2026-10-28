@@ -7,8 +7,7 @@ it alive and the git checkout it runs from. The page is itself served on the tai
 
 Python 3.8+ standard library only, macOS. The page cannot start, stop or change any app.
 
-This is a skeleton: the core of a dashboard I run on my own Macs, with the personal parts taken out. Fork it
-and make it yours. [ElectroGUI](https://github.com/chenruidong/electrogui) is the worked example
+[ElectroGUI](https://github.com/chenruidong/electrogui) is the worked example
 ([examples/electrogui](examples/electrogui/README.md)).
 
 ## How it works
